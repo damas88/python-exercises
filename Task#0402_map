@@ -1,0 +1,20 @@
+def add1(n):
+  m = [element + 1 for element in n]
+ return m
+
+def isPrime(n):
+  is_prime = []
+ for num in n:
+ if num <= 1:
+      is_prime.append(False)
+ continue
+
+ # Only check divisibility up to the square root of num (efficient optimization)
+    is_prime_flag = True # Assume prime initially
+ for i in range(2, int(num**0.5) + 1):
+ if num % i == 0:
+        is_prime_flag = False # Not prime, break the loop
+ break
+    is_prime.append(is_prime_flag) # Append True/False based on the flag
+ return(is_prime)
+isPrime(L)
