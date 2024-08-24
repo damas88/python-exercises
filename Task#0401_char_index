@@ -1,0 +1,7 @@
+s = 'Here are UPPERCASE and lowercase chars.'
+d={}for i, char inenumerate(s, start=1):
+    if char in d:    
+        d[char].append(i)# Append index to existing list
+    else:    
+        d[char] = [i]# Create new list for the character
+print(d)
