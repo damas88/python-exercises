@@ -1,0 +1,5 @@
+s = "This company is not poor at all. "
+position1 = s.find("not")
+position2 = s.find("all")
+d = s.replace(s[position1:position2+3],"good")
+print(d) # This company is good.
