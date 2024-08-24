@@ -1,0 +1,30 @@
+def is_self_dividing(n):
+    """檢查一個數字是否是自除數"""
+    digits = [int(d) for d in str(n)]
+    for d in digits:
+        if d == 0 or n % d != 0:
+            return False
+    return True
+
+def max_self_dividing_difference(left, right):
+    """找出在左右邊界之間的 Self-Dividing Number 的最大差距"""
+    max_diff = 0
+    max_diff_pair = (None, None)
+    previous_dividing = left
+    for i in range(left, right+1):
+      if is_self_dividing(i):
+        if i - previous_dividing > max_diff:
+          max_diff = i - previous_dividing
+          max_diff_pair = (previous_dividing, i)
+        previous_dividing = i      
+    return max_diff_pair
+        
+# 範例輸入：左邊界為11，右邊界為15
+left = 11
+right = 15
+
+# 呼叫函式找出最大差距
+max_diff_pair = max_self_dividing_difference(left, right)
+
+# 輸出結果
+print(f"差距最大的 Self-Dividing Number 是 {max_diff_pair[0]} 與 {max_diff_pair[1]}，差距為 {max_diff_pair[1] - max_diff_pair[0]}")
