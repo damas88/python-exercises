@@ -1,0 +1,11 @@
+from itertools import permutations
+
+s = "abc"
+unique_chars = [char for char in s if char.isalnum()]  # number and character only
+# Generate all combinations using itertools.combinations
+d = []
+for length in range(2, len(unique_chars) + 1):
+  for combi in permutations(unique_chars, length):
+    d.append("".join(combi))
+
+print(d)
